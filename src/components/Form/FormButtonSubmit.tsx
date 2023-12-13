@@ -1,7 +1,12 @@
-export default function FormButtonSubmit(){
+interface FormButtonSubmitProps {
+    title: string;
+    disabled?: boolean;
+}
+
+export default function FormButtonSubmit({title, disabled}: FormButtonSubmitProps){
     return (
         <div className="form-btn-submit__container">
-            <button type="submit">Login</button>
+            <button disabled={disabled} type="submit">{title}</button>
         </div>
     )
 }

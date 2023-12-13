@@ -1,4 +1,8 @@
-export default function FormHeader(){
+interface FormHeaderProps {
+    title: string;
+}
+
+export default function FormHeader({title}: FormHeaderProps){
     return (
         <div className="form-header">
             <div className="form-header-logo__container">
@@ -11,7 +15,7 @@ export default function FormHeader(){
                 <span>, Todos</span>
             </div>
             <div className="form-header-title__container">
-                <h2 className="form-header-title">Login</h2>
+                <h2 className="form-header-title">{title}</h2>
             </div>
         </div>
     )
