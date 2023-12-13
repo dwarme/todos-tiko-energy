@@ -1,3 +1,5 @@
+import { ASSETS } from "../../utils/constanst";
+
 interface FormHeaderProps {
     title: string;
 }
@@ -7,7 +9,7 @@ export default function FormHeader({title}: FormHeaderProps){
         <div className="form-header">
             <div className="form-header-logo__container">
                 <img
-                    src="https://tiko.energy/wp-content/uploads/2020/07/logo_tiko.svg"
+                    src={ASSETS.tikoLogo}
                     width={70}
                     height={34}
                     alt="Tiko Logo"
