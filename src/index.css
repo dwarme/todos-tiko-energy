@@ -120,3 +120,8 @@ button,
   text-align: center;
   white-space: nowrap;
 }
+
+button:disabled,
+.button:disabled {
+  opacity: 0.5;
+}
