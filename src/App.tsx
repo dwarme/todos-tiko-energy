@@ -2,8 +2,8 @@ import React, { Suspense } from 'react';
 import './App.css';
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import IndexPage from './pages/IndexPage';
 import { SITE_MAP } from './utils/constanst';
+import IndexPage from './pages/IndexPage';
 
 const PAGES = {
   Index: IndexPage,

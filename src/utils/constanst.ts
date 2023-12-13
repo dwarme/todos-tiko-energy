@@ -1,5 +1,5 @@
 export const SITE_MAP = {
-    index: '/index',
+    index: '/',
     login: '/login',
     logout: '/logout',
     todos: '/todos',
