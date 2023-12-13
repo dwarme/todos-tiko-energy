@@ -1,4 +1,4 @@
-const SITE_MAP = {
+export const SITE_MAP = {
     index: '/index',
     login: '/login',
     logout: '/logout',

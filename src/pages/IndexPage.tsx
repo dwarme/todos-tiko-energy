@@ -1,6 +1,6 @@
 export default function IndexPage(){
 
     return (
-        <div></div>
+        <div>Index</div>
     )
 }
