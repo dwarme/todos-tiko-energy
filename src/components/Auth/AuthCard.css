@@ -1,0 +1,49 @@
+.auth-card-container {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.auth-card-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    inline-size: 640px;
+    block-size: 0;
+    -webkit-margin-before: 44px;
+    margin-block-start: 44px;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-box-shadow: 0 11px 34px 0 rgba(0,0,0,.2);
+    box-shadow: 0 11px 34px 0 rgba(0,0,0,.2);
+    border-radius: 34px;
+    background-color: #fff;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.auth-card-content {
+    width: 640px;
+    min-height: 610px;
+    margin-top: 44px;
+}
