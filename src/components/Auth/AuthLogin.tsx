@@ -5,6 +5,7 @@ import AuthLink from "./AuthLink";
 import useFormFields from "../../hooks/use-form-fields";
 import { useState } from "react";
 import LoadingSpinner from "../LoadingSpinner";
+import TikoTodosApi from "../../api";
 
 export default function AuthLogin() {
     const [httpRequestStatus, setRequestStatus] = useState<{loading: boolean; error?: string}>({loading: false});
@@ -16,14 +17,15 @@ export default function AuthLogin() {
         handleInputFieldEmailPasswordChange
     } = useFormFields();
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>)=>{
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>)=>{
         event.preventDefault();
         console.log(enteredInputFieldEmail, enteredInputFieldPassword);
         setRequestStatus({loading: true});
+
+        const result = await TikoTodosApi.auth.login();
     }
 
     const {loading} = httpRequestStatus;
-    console.log(loading);
 
     return (
         <AuthCard>
