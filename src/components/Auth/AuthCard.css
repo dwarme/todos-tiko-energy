@@ -29,21 +29,29 @@
     -ms-flex-direction: column;
     flex-direction: column;
     inline-size: 640px;
-    block-size: 0;
     -webkit-margin-before: 44px;
     margin-block-start: 44px;
-    visibility: hidden;
-    opacity: 0;
     -webkit-box-shadow: 0 11px 34px 0 rgba(0,0,0,.2);
     box-shadow: 0 11px 34px 0 rgba(0,0,0,.2);
     border-radius: 34px;
     background-color: #fff;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
 }
 
 .auth-card-content {
     width: 640px;
     min-height: 610px;
     margin-top: 44px;
+}
+
+
+@media only screen and (max-width: 759px){
+    .auth-card-content {
+        width: 100%;
+        margin-top: 0;
+        inline-size: 100%;
+        border-radius: 0;
+        flex-grow: 1;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
 }
