@@ -1,5 +1,10 @@
+import AuthLogin from "../components/Auth/AuthLogin";
+import Layout from "../components/Layout";
+
 export default function LoginPage(){
     return (
-        <div>Login Page</div>
+        <Layout>
+            <AuthLogin />
+        </Layout>
     )
 }
