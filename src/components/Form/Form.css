@@ -123,7 +123,9 @@ input[type=password], input[type=text] {
     transition-timing-function: ease-in;
 }
 
-.form-textbox-input:focus~.form-textbox-label {
+.form-textbox-input:focus~.form-textbox-label,
+.form-textbox-input.text-entered~.form-textbox-label
+ {
     top: .58824rem;
     font-size: 12px;
     line-height: 1.33337;
@@ -136,4 +138,13 @@ input[type=password], input[type=text] {
     display: flex;
     justify-content: center;
     padding-top: 30px;
+}
+
+.form-error-message__container {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-error-message {
+    color: #e30000;
 }

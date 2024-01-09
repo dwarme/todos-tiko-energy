@@ -10,6 +10,9 @@ const PAGES = {
   Login: React.lazy(
     () => import(/* webpackChunkName: "login" */ "./pages/LoginPage")
   ),
+  Register: React.lazy(
+    () => import(/* webpackChunkName: "register" */ "./pages/RegisterPage")
+  ),
   Logout: React.lazy(
     () => import(/* webpackChunkName: "logout" */ "./pages/LogoutPage")
   ),
@@ -26,6 +29,7 @@ function App() {
           <Routes>
             <Route path={SITE_MAP.index} element={<PAGES.Index />} />
             <Route path={SITE_MAP.login} element={<PAGES.Login />} />
+            <Route path={SITE_MAP.register} element={<PAGES.Register />} />
             <Route path={SITE_MAP.logout} element={<PAGES.Logout />} />
             <Route path={SITE_MAP.todos} element={<PAGES.Todos />} />
           </Routes>

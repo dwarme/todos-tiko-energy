@@ -11,19 +11,19 @@ export default function useFormFields(){
         setEnteredInputFieldEmail(email);
     }
 
-    const handleInputFieldEmailPasswordChange = (password: string)=>{
+    const handleInputFieldPasswordChange = (password: string)=>{
         setEnteredInputFieldPassword(password);
     }
 
-    const handleInputFieldEmailPassword2Change = (password2: string)=>{
+    const handleInputFieldPassword2Change = (password2: string)=>{
         setEnteredInputFieldPassword2(password2);
     }
 
-    const handleInputFieldEmailFirstNameChange = (firstName: string)=>{
+    const handleInputFieldFirstNameChange = (firstName: string)=>{
         setEnteredInputFieldFirstName(firstName);
     }
 
-    const handleInputFieldEmailLastNameChange = (lastName: string)=>{
+    const handleInputFieldLastNameChange = (lastName: string)=>{
         setEnteredInputFieldLastName(lastName);
     }
 
@@ -31,12 +31,12 @@ export default function useFormFields(){
         enteredInputFieldEmail,
         handleInputFieldEmailChange,
         enteredInputFieldPassword,
-        handleInputFieldEmailPasswordChange,
+        handleInputFieldPasswordChange,
         enteredInputFieldPassword2,
-        handleInputFieldEmailPassword2Change,
+        handleInputFieldPassword2Change,
         enteredInputFieldFirstName,
-        handleInputFieldEmailFirstNameChange,
+        handleInputFieldFirstNameChange,
         enteredInputFieldLastName,
-        handleInputFieldEmailLastNameChange
+        handleInputFieldLastNameChange
     }
 }

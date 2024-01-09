@@ -1,6 +1,7 @@
 export const SITE_MAP = {
     index: '/',
     login: '/login',
+    register: '/register',
     logout: '/logout',
     todos: '/todos',
 }
@@ -21,5 +22,15 @@ export const FORM_FIELDS_VALIDITY_LENGHTS = {
     password: {
         min: 1,
         max: 150
+    }
+}
+
+export const TIKO_API_ENDPOINTS = {
+    auth: {
+        login: 'https://todos-api.public.tiko.energy/api/login/',
+        register: 'https://todos-api.public.tiko.energy/api/register/',        
+    },
+    todos: {
+
     }
 }

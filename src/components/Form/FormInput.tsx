@@ -3,22 +3,23 @@ import { useRef } from "react";
 interface FormInputProps {
     inputProps?: React.InputHTMLAttributes<HTMLInputElement>;
     labelText: string;
-    customValidityMessage?: string;
     onChange?: (value: string)=> void;
 }
-export default function FormInput({inputProps, labelText, customValidityMessage, onChange}: FormInputProps){
+export default function FormInput({inputProps, labelText, onChange}: FormInputProps){
     const refInput = useRef<HTMLInputElement>(null);
 
     const handleInputChange = (event:  React.ChangeEvent<HTMLInputElement>)=> {
+        const enteredText = event.target.value;
         if(onChange){
-            onChange(event.target.value)
+            onChange(enteredText);
         }
-    }
 
-    const handleInputInvalid = ()=>{
-        if(customValidityMessage) {
-            refInput.current?.setCustomValidity(customValidityMessage);
+        if(enteredText.length > 0){
+            refInput.current?.classList.add('text-entered');
+            return;
         }
+
+        refInput.current?.classList.remove('text-entered')
     }
 
     return (
@@ -36,7 +37,6 @@ export default function FormInput({inputProps, labelText, customValidityMessage,
                     onChange={handleInputChange}
                     placeholder={undefined}
                     className={`form-textbox-input ${inputProps?.className ?? ''}`}
-                    onInvalid={handleInputInvalid}
                 />
                 <label className="form-textbox-label">{labelText}</label>
             </div>

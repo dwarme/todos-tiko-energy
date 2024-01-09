@@ -1,4 +1,4 @@
-import { FORM_FIELDS_VALIDITY_LENGHTS } from "../../utils/constanst";
+import { FORM_FIELDS_VALIDITY_LENGHTS, SITE_MAP } from "../../utils/constanst";
 import Form from "../Form";
 import AuthCard from "./AuthCard";
 import AuthLink from "./AuthLink";
@@ -6,31 +6,48 @@ import useFormFields from "../../hooks/use-form-fields";
 import { useState } from "react";
 import LoadingSpinner from "../LoadingSpinner";
 import TikoTodosApi from "../../api";
+import { useNavigate } from "react-router";
+import FormErrorMessage from "../Form/FormErrorMessage";
 
 export default function AuthLogin() {
-    const [httpRequestStatus, setRequestStatus] = useState<{loading: boolean; error?: string}>({loading: false});
+    const navigate = useNavigate()
+    const [httpRequestStatus, setRequestStatus] = useState<{loading: boolean; errorMessage?: string}>({loading: false});
 
     const {
         enteredInputFieldEmail,
         enteredInputFieldPassword,
         handleInputFieldEmailChange,
-        handleInputFieldEmailPasswordChange
+        handleInputFieldPasswordChange
     } = useFormFields();
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>)=>{
         event.preventDefault();
-        console.log(enteredInputFieldEmail, enteredInputFieldPassword);
         setRequestStatus({loading: true});
 
-        const result = await TikoTodosApi.auth.login();
+        const {error} = await TikoTodosApi.auth.login({email: enteredInputFieldEmail, password: enteredInputFieldPassword});
+        if(error){
+            let errorMessage = '';
+
+            if('detail' in error) errorMessage = error.detail;
+            if('email' in error) errorMessage = `Email: ${error.email}`;
+            if('password' in error) errorMessage = `Password: ${error.password}`;
+
+            setRequestStatus({loading: false, errorMessage})
+            return; 
+        }
+        
+        navigate(SITE_MAP.todos);
     }
 
-    const {loading} = httpRequestStatus;
+    const {loading, errorMessage} = httpRequestStatus;
 
     return (
         <AuthCard>
             <Form onSubmit={handleSubmit}>
                 <Form.Header title="Login" />
+                {errorMessage && (
+                    <FormErrorMessage message={errorMessage} />
+                )}
                 <Form.Input
                     inputProps={{
                         id: 'email',
@@ -42,7 +59,6 @@ export default function AuthLogin() {
                         disabled: loading,
                     }}
                     labelText="Email"
-                    customValidityMessage={`Please enter a valid Email with max ${FORM_FIELDS_VALIDITY_LENGHTS.email.max} character`}
                     onChange={handleInputFieldEmailChange}
                 />
                 <Form.Input
@@ -56,18 +72,15 @@ export default function AuthLogin() {
                         disabled: loading,
                     }}
                     labelText="Password"
-                    customValidityMessage={`Please enter a valid Password with max ${FORM_FIELDS_VALIDITY_LENGHTS.password.max} character`}
-                    onChange={handleInputFieldEmailPasswordChange}
+                    onChange={handleInputFieldPasswordChange}
                 />
                 {!loading ? (
                     <Form.ButtonSubmit title="Login" />
                 ):(
                     <LoadingSpinner />
                 )}
-                <AuthLink link="/register">Create an Account</AuthLink>
+                <AuthLink link={SITE_MAP.register}>Create an Account</AuthLink>
             </Form>
-
         </AuthCard>
-
     )
 }
